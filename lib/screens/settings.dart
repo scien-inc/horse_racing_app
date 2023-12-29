@@ -6,6 +6,8 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('設定'),
+        toolbarHeight: 70,//textsize
+        backgroundColor: Colors.white,//backgroundcolor
       ),
       body: ListView(
         children: <Widget>[
@@ -13,8 +15,8 @@ class SettingsScreen extends StatelessWidget {
           premiumMemberCard(),
           // ユーザーセクション
           sectionHeader('ユーザー'),
-          settingsOption(Icons.people, 'アカウント設定', Colors.grey),
-          settingsOption(Icons.lock, 'ユーザー設定', Colors.grey),
+          settingsOption(Icons.key_rounded, 'アカウント設定', Colors.grey),
+          settingsOption(Icons.person_outline, 'ユーザー設定', Colors.grey),
           settingsOption(Icons.notifications, '通知', Colors.grey),
           // サポートセクション
           sectionHeader('サポート'),
@@ -31,10 +33,12 @@ class SettingsScreen extends StatelessWidget {
     return Card(
       margin: EdgeInsets.all(8.0),
       child: Container(
+        //size
+        height: 130,
         padding: EdgeInsets.all(8.0),
         decoration: BoxDecoration(
           gradient: LinearGradient(
-            colors: [Colors.blue[400]!, Colors.blue[600]!],
+            colors: [Colors.blue[600]!, Colors.blue[900]!],
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
           ),
@@ -48,12 +52,14 @@ class SettingsScreen extends StatelessWidget {
           ],
         ),
         child: ListTile(
+          //insert icon 
+          leading: ImageIcon(AssetImage('material/icons/crown.png'), color: Colors.white, size: 30.0),
           title: Text(
             'プレミアム会員',
             style: TextStyle(color: Colors.white),
           ),
           subtitle: Text(
-            'Lorem ipsum dolor sit amet consectetur...',
+            'Lorem ipsum dolor sit amet consectetur. Pellentesque dui porttitor ullamcorper urna. Varius nisi at elit eu vivamus feugiat diam at in.',
             style: TextStyle(color: Colors.white70),
           ),
           trailing: Icon(Icons.chevron_right, color: Colors.white),
@@ -66,7 +72,7 @@ class SettingsScreen extends StatelessWidget {
   Widget sectionHeader(String title) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-      color: Colors.blue[100],
+      color: Colors.white,
       child: Text(title, style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
     );
   }

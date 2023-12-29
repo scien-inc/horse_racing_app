@@ -6,6 +6,8 @@ class ReportScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('レポート'),
+        toolbarHeight: 70,//textsize
+        backgroundColor: Colors.white,//backgroundcolor
       ),
       body: Center(
         child: Text('Hello, World'),

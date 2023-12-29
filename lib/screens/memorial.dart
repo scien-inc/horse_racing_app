@@ -6,6 +6,8 @@ class MemorialScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('メモリアル'),
+        toolbarHeight: 70,//textsize
+        backgroundColor: Colors.white,//backgroundcolor
       ),
       body: Center(
         child: Text('Hello, World'),
