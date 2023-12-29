@@ -5,7 +5,7 @@ class MemorialScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Report'),
+        title: Text('メモリアル'),
       ),
       body: Center(
         child: Text('Hello, World'),

@@ -33,7 +33,6 @@ class _MyHomePageState extends State<MyHomePage> {
     ReportScreen(),
     MemorialScreen(),
     InputScreen(),
-    MemorialScreen(),
     FavoriteScreen(),
     SettingsScreen(),
   ];
@@ -43,12 +42,37 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: _pages.elementAt(_currentIndex),
       bottomNavigationBar: BottomNavigationBar(
-        items: const [
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('material/icons/report_false.png'), size: 24.0,), label: 'Report'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('material/icons/memorial_false.png'), size: 24.0,), label: 'Memorial'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('material/icons/input_false.png'), size: 24.0,), label: 'Input'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('material/icons/favorite_false.png'), size: 24.0,), label: 'Favorite'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('material/icons/settings_false.png'), size: 24.0,), label: 'Settings'),
+        items: [
+          BottomNavigationBarItem(
+            icon: _currentIndex == 0
+                ? ImageIcon(AssetImage('material/icons/report_true.png'), size: 24.0)
+                : ImageIcon(AssetImage('material/icons/report_false.png'), size: 24.0),
+            label: 'レポート',
+          ),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 1
+                ? ImageIcon(AssetImage('material/icons/memorial_true.png'), size: 24.0)
+                : ImageIcon(AssetImage('material/icons/memorial_false.png'), size: 24.0),
+            label: 'メモリアル',
+          ),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 2
+                ? ImageIcon(AssetImage('material/icons/input_true.png'), size: 24.0)
+                : ImageIcon(AssetImage('material/icons/input_false.png'), size: 24.0),
+            label: '収支入力',
+          ),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 3
+                ? ImageIcon(AssetImage('material/icons/favorite_true.png'), size: 24.0)
+                : ImageIcon(AssetImage('material/icons/favorite_false.png'), size: 24.0),
+            label: 'お気に入り',
+          ),
+          BottomNavigationBarItem(
+            icon: _currentIndex == 4
+                ? ImageIcon(AssetImage('material/icons/settings_true.png'), size: 24.0)
+                : ImageIcon(AssetImage('material/icons/settings_false.png'), size: 24.0),
+            label: '設定',
+          ),
         ],
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -56,9 +80,9 @@ class _MyHomePageState extends State<MyHomePage> {
             _currentIndex = index;
           });
         },
-        selectedItemColor: Colors.white,
-        unselectedItemColor: Colors.white54,
-        backgroundColor: Colors.grey,
+        selectedItemColor: Colors.green,
+        unselectedItemColor: Colors.black,
+        backgroundColor: Colors.white,
         type: BottomNavigationBarType.fixed,
       ),
     );

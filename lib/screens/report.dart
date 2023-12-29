@@ -5,7 +5,7 @@ class ReportScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Report'),
+        title: Text('レポート'),
       ),
       body: Center(
         child: Text('Hello, World'),
