@@ -359,10 +359,10 @@ class _InputOverlayState extends State<InputOverlay> {
                       child: 
                         buildDropdownField(
                           betTypes,
-                          formRowsState[index]['betType']!, // ここで各行のbetTypeを参照
+                          selectedBetType, // ここで各行のbetTypeを参照
                           (newValue) {
                             setState(() {
-                              formRowsState[index]['betType'] = newValue!; // 選択された値を保存
+                              selectedBetType = newValue!; // 選択された値を保存
                             });
                           },
                           borderRadius: 10,
