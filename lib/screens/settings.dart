@@ -1,29 +1,49 @@
 import 'package:flutter/material.dart';
+import 'package:horse_racing_app/screens/settings/account.dart';
+import 'package:horse_racing_app/screens/settings/contact.dart';
+import 'package:horse_racing_app/screens/settings/faq.dart';
+import 'package:horse_racing_app/screens/settings/notifications.dart';
+import 'package:horse_racing_app/screens/settings/terms.dart';
+import 'package:horse_racing_app/screens/settings/user.dart';
+import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
-class SettingsScreen extends StatelessWidget {
+class SettingsScreen extends StatefulWidget {
+  @override
+  _SettingsScreenState createState() => _SettingsScreenState();
+}
+
+class _SettingsScreenState extends State<SettingsScreen> {
+  int _currentIndex = 4; // 初期インデックスを0に設定
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index; // タップされたときにインデックスを更新
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('設定'),
-        toolbarHeight: 70,//textsize
-        backgroundColor: Colors.white,//backgroundcolor
+        toolbarHeight: 70,
+        backgroundColor: Colors.white,
       ),
       body: ListView(
         children: <Widget>[
-          // プレミアム会員カード
           premiumMemberCard(),
-          // ユーザーセクション
           sectionHeader('ユーザー'),
-          settingsOption(Icons.key_rounded, 'アカウント設定', Colors.grey),
-          settingsOption(Icons.person_outline, 'ユーザー設定', Colors.grey),
-          settingsOption(Icons.notifications, '通知', Colors.grey),
-          // サポートセクション
+          settingsOption(context, Icons.key_rounded, 'アカウント設定', Colors.grey, AccountSettingsPage()),
+          settingsOption(context, Icons.person_outline, 'ユーザー設定', Colors.grey, UserSettingsPage()),
+          settingsOption(context, Icons.notifications, '通知', Colors.grey, NotificationsPage()),
           sectionHeader('サポート'),
-          settingsOption(Icons.help_outline, 'よくある質問', Colors.grey),
-          settingsOption(Icons.mail_outline, 'お問い合わせ', Colors.grey),
-          settingsOption(Icons.info_outline, '規約一覧', Colors.grey),
+          settingsOption(context, Icons.help_outline, 'よくある質問', Colors.grey, FAQPage()),
+          settingsOption(context, Icons.mail_outline, 'お問い合わせ', Colors.grey, ContactPage()),
+          settingsOption(context, Icons.info_outline, '規約一覧', Colors.grey, TermsPage()),
         ],
+      ),
+      bottomNavigationBar: SharedBottomNavBar(
+        currentIndex: _currentIndex,
+        onTap: _onItemTapped,// SharedBottomNavBarにページリストを渡す
       ),
     );
   }
@@ -77,14 +97,16 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
-  // 設定オプションのウィジェット
-  Widget settingsOption(IconData icon, String title, Color textColor) {
+  Widget settingsOption(BuildContext context, IconData icon, String title, Color textColor, Widget destinationPage) {
     return Card(
       margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
       child: ListTile(
         leading: Icon(icon),
         title: Text(title, style: TextStyle(color: textColor)),
         trailing: Icon(Icons.chevron_right),
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => destinationPage));
+        },
       ),
     );
   }

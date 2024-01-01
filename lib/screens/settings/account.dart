@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:horse_racing_app/main.dart';
 import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
-class MemorialScreen extends StatefulWidget {
+class AccountSettingsPage extends StatefulWidget {
   @override
-  _MemorialScreenState createState() => _MemorialScreenState();
+  _AccountSettingsPageState createState() => _AccountSettingsPageState();
 }
 
-class _MemorialScreenState extends State<MemorialScreen> {
-  int _currentIndex = 1; // 初期インデックスを0に設定
+class _AccountSettingsPageState extends State<AccountSettingsPage> {
+  int _currentIndex = 0; // 初期インデックスを0に設定
 
   void _onItemTapped(int index) {
     setState(() {
       _currentIndex = index; // タップされたときにインデックスを更新
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('メモリアル'),
-        toolbarHeight: 70,//textsize
-        backgroundColor: Colors.white,//backgroundcolor
+        title: Text('アカウント設定'),
       ),
       body: Center(
-        child: Text('Hello, World'),
+        child: Text('アカウント設定ページ'),
       ),
       bottomNavigationBar: SharedBottomNavBar(
         currentIndex: _currentIndex,
