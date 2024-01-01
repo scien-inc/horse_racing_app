@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:horse_racing_app/widget/input_screen.dart';
+import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
 class InputScreen extends StatefulWidget {
   @override
@@ -18,6 +19,13 @@ class _InputScreenState extends State<InputScreen> {
     _calendarFormat = CalendarFormat.month;
     _focusedDay = DateTime.now();
     _selectedDay = _focusedDay;
+  }
+  int _currentIndex = 2; // 初期インデックスを0に設定
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _currentIndex = index; // タップされたときにインデックスを更新
+    });
   }
 
   @override
@@ -73,6 +81,10 @@ class _InputScreenState extends State<InputScreen> {
           
           ),
         ],
+      ),
+      bottomNavigationBar: SharedBottomNavBar(
+        currentIndex: _currentIndex,
+        onTap: _onItemTapped,// SharedBottomNavBarにページリストを渡す
       ),
     );
   }
