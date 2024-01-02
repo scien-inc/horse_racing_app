@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
+class ReportPage extends StatelessWidget{
+  const ReportPage({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: ReportScreen());
+  }
+}
+
 
 class ReportScreen extends StatefulWidget {
   @override
@@ -79,10 +89,7 @@ class _ReportScreenState extends State<ReportScreen> {
           ],
         ),
       ),
-      bottomNavigationBar: SharedBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,// SharedBottomNavBarにページリストを渡す
-      ),
+
     );
   }
 

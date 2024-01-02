@@ -5,6 +5,7 @@ import 'package:horse_racing_app/screens/input.dart';
 import 'package:horse_racing_app/screens/memorial.dart';
 import 'package:horse_racing_app/screens/settings.dart';
 import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
+import 'package:horse_racing_app/base.dart';
 
 void main() {
   runApp(MyApp());
@@ -32,7 +33,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ReportScreen(), // デフォルトページとして直接 ReportScreen を表示
+      body: BasePage(), // デフォルトページとして直接 ReportScreen を表示
     );
   }
 }

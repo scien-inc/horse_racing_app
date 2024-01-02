@@ -3,6 +3,16 @@ import 'package:table_calendar/table_calendar.dart';
 import 'package:horse_racing_app/widget/input_screen.dart';
 import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
+class InputPage extends StatelessWidget{
+  const InputPage({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: InputScreen());
+  }
+}
+
 class InputScreen extends StatefulWidget {
   @override
   _InputScreenState createState() => _InputScreenState();
@@ -82,10 +92,7 @@ class _InputScreenState extends State<InputScreen> {
           ),
         ],
       ),
-      bottomNavigationBar: SharedBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,// SharedBottomNavBarにページリストを渡す
-      ),
+
     );
   }
 }
