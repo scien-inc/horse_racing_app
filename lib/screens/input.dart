@@ -30,13 +30,7 @@ class _InputScreenState extends State<InputScreen> {
     _focusedDay = DateTime.now();
     _selectedDay = _focusedDay;
   }
-  int _currentIndex = 2; // 初期インデックスを0に設定
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index; // タップされたときにインデックスを更新
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

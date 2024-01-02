@@ -22,13 +22,7 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  int _currentIndex = 4; // 初期インデックスを0に設定
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index; // タップされたときにインデックスを更新
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
