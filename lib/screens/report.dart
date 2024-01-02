@@ -20,8 +20,8 @@ class _ReportScreenState extends State<ReportScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('レポート'),
-        centerTitle: true,
-        backgroundColor: Colors.blueAccent,
+        toolbarHeight: 70,
+        backgroundColor: Colors.white,
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),

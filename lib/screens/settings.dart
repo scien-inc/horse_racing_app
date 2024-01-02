@@ -34,7 +34,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           sectionHeader('ユーザー'),
           settingsOption(context, Icons.key_rounded, 'アカウント設定', Colors.grey, AccountSettingsPage()),
           settingsOption(context, Icons.person_outline, 'ユーザー設定', Colors.grey, UserSettingsPage()),
-          settingsOption(context, Icons.notifications, '通知', Colors.grey, NotificationsPage()),
+          settingsOption(context, Icons.notifications, '通知', Colors.grey, NotificationsSettingsPage()),
           sectionHeader('サポート'),
           settingsOption(context, Icons.help_outline, 'よくある質問', Colors.grey, FAQPage()),
           settingsOption(context, Icons.mail_outline, 'お問い合わせ', Colors.grey, ContactPage()),
