@@ -21,6 +21,11 @@ class _UserSettingsPageState extends State<UserSettingsPage> {
         title: const Text('アカウント設定'),
         backgroundColor: Colors.white,
         centerTitle: true,
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () => Navigator.of(context).pop(),
+        ),
       ),
       body: Center(
         child: Text('アカウント設定ページ'),

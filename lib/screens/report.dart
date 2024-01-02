@@ -28,10 +28,17 @@ class _ReportScreenState extends State<ReportScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('レポート'),
-        toolbarHeight: 70,
-        backgroundColor: Colors.white,
+        title: const Text(
+          'レポート',
+          style: TextStyle(
+            fontSize: 34.0,
+            fontWeight: FontWeight.bold, // 太字
+          ), 
+        ),
+        toolbarHeight: 100,//textsize
+        backgroundColor: Colors.white,//backgroundcolor
       ),
+      backgroundColor: Colors.white,
       body: Padding(
         padding: EdgeInsets.all(16.0),
         child: ListView( // Changed from Column to ListView

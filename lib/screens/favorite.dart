@@ -27,10 +27,17 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('お気に入り'),
-        toolbarHeight: 70,//textsize
+        title: const Text(
+          'お気に入り',
+          style: TextStyle(
+            fontSize: 34.0,
+            fontWeight: FontWeight.bold, // 太字
+          ), 
+        ),
+        toolbarHeight: 100,//textsize
         backgroundColor: Colors.white,//backgroundcolor
       ),
+      backgroundColor: Colors.white,
       body: Center(
         child: Text('Hello, World'),
       ),

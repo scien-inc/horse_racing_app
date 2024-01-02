@@ -42,10 +42,17 @@ class _InputScreenState extends State<InputScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('収支入力'),
-        toolbarHeight: 70,
-        backgroundColor: Colors.white,
+        title: const Text(
+          '収支入力',
+          style: TextStyle(
+            fontSize: 34.0,
+            fontWeight: FontWeight.bold, // 太字
+          ), 
+        ),
+        toolbarHeight: 100,//textsize
+        backgroundColor: Colors.white,//backgroundcolor
       ),
+      backgroundColor: Colors.white,
       body: Column(
         children: [
           TableCalendar(
