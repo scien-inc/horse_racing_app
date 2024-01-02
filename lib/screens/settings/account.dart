@@ -8,7 +8,7 @@ class AccountSettingsPage extends StatefulWidget {
 }
 
 class _AccountSettingsPageState extends State<AccountSettingsPage> {
-  int _currentIndex = 0; // 初期インデックスを0に設定
+  int _currentIndex = 4; // 初期インデックスを0に設定
 
   void _onItemTapped(int index) {
     setState(() {

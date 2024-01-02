@@ -2,6 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:horse_racing_app/widget/showroom.dart';
 import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
+class MemorialPage extends StatelessWidget{
+  const MemorialPage({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: MemorialScreen());
+  }
+}
+
 
 class MemorialScreen extends StatefulWidget {
   const MemorialScreen({super.key});
@@ -78,10 +88,7 @@ class _MemorialScreenState extends State<MemorialScreen> {
           ]
         )
       ),
-      bottomNavigationBar: SharedBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,// SharedBottomNavBarにページリストを渡す
-      ),
+
     );
   }
 }

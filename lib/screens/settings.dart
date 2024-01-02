@@ -7,6 +7,16 @@ import 'package:horse_racing_app/screens/settings/terms.dart';
 import 'package:horse_racing_app/screens/settings/user.dart';
 import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
+class SettingsPage extends StatelessWidget{
+  const SettingsPage({super.key});
+
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: SettingsScreen());
+  }
+}
+
 class SettingsScreen extends StatefulWidget {
   @override
   _SettingsScreenState createState() => _SettingsScreenState();
@@ -41,10 +51,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           settingsOption(context, Icons.info_outline, '規約一覧', Colors.grey, TermsPage()),
         ],
       ),
-      bottomNavigationBar: SharedBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,// SharedBottomNavBarにページリストを渡す
-      ),
+
     );
   }
 
