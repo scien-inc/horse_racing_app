@@ -33,10 +33,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('設定'),
-        toolbarHeight: 70,
-        backgroundColor: Colors.white,
+        title: const Text(
+          '設定',
+          style: TextStyle(
+            fontSize: 34.0,
+            fontWeight: FontWeight.bold, // 太字
+          ), 
+        ),
+        toolbarHeight: 100,//textsize
+        backgroundColor: Colors.white,//backgroundcolor
       ),
+      backgroundColor: Colors.white,
       body: ListView(
         children: <Widget>[
           premiumMemberCard(),
@@ -111,7 +118,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
         title: Text(title, style: TextStyle(color: textColor)),
         trailing: Icon(Icons.chevron_right),
         onTap: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) => destinationPage));
+          Navigator.of(context).push(
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return destinationPage;
+                  },
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    
+                    final Offset begin = Offset(1.0, 0.0); // 右から左
+                    // final Offset begin = Offset(-1.0, 0.0); // 左から右
+                    final Offset end = Offset.zero;
+                    final Animatable<Offset> tween = Tween(begin: begin, end: end)
+                        .chain(CurveTween(curve: Curves.easeInOut));
+                    final Animation<Offset> offsetAnimation = animation.drive(tween);
+                    return SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    );
+                  },
+                  transitionDuration: Duration(milliseconds: 250),
+                ),
+              );
+          //Navigator.push(context, MaterialPageRoute(builder: (context) => destinationPage));
         },
       ),
     );

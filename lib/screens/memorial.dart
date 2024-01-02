@@ -20,13 +20,6 @@ class MemorialScreen extends StatefulWidget {
 }
 
 class _MemorialScreenState extends State<MemorialScreen> {
-  int _currentIndex = 1; // 初期インデックスを0に設定
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index; // タップされたときにインデックスを更新
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
