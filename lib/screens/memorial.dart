@@ -32,11 +32,17 @@ class _MemorialScreenState extends State<MemorialScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('メモリアル'),
-        toolbarHeight: 70,//textsize
+        title: const Text(
+          'メモリアル',
+          style: TextStyle(
+            fontSize: 34.0,
+            fontWeight: FontWeight.bold, // 太字
+          ), 
+        ),
+        toolbarHeight: 100,//textsize
         backgroundColor: Colors.white,//backgroundcolor
       ),
-
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           children: <Widget>[
@@ -77,7 +83,7 @@ class _MemorialScreenState extends State<MemorialScreen> {
                       child: child,
                     );
                   },
-                  transitionDuration: Duration(milliseconds: 300),
+                  transitionDuration: Duration(milliseconds: 250),
                 ),
               );
             },
