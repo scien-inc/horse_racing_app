@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:horse_racing_app/widget/ranking.dart';
 
 
 class Showroom extends StatefulWidget {
@@ -15,6 +15,13 @@ class _ShowroomState extends State<Showroom> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
+        leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios),
+            onPressed: () => Navigator.of(context).pop(),
+            ),
+        
+        
         title: const Text(
           '重賞展示室',
           style: TextStyle(
@@ -91,32 +98,57 @@ class GridItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.black),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            'material/img/trophy.png',
-            height: 70,
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return RankingPage(title: award.name,);
+                  },
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    
+                    final Offset begin = Offset(1.0, 0.0); // 右から左
+                    // final Offset begin = Offset(-1.0, 0.0); // 左から右
+                    final Offset end = Offset.zero;
+                    final Animatable<Offset> tween = Tween(begin: begin, end: end)
+                        .chain(CurveTween(curve: Curves.easeInOut));
+                    final Animation<Offset> offsetAnimation = animation.drive(tween);
+                    return SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    );
+                  },
+                  transitionDuration: Duration(milliseconds: 250),
+                ),
+              );
+            },
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              'material/img/trophy.png',
+              height: 70,
 
-          ),
-          SizedBox(height: 8.0),
-          Text(award.name,
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 12.0
-              )),
-          Text('${award.record.toString()}レコード' ,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 10.0
-              )),
-        ],
-      ),
+            ),
+            SizedBox(height: 8.0),
+            Text(award.name,
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 12.0
+                )),
+            Text('${award.record.toString()}レコード' ,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 10.0
+                )),
+          ],
+        ),
+      )
     );
   }
 }
