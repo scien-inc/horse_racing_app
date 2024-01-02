@@ -4,7 +4,7 @@ import 'package:horse_racing_app/screens/favorite.dart';
 import 'package:horse_racing_app/screens/input.dart';
 import 'package:horse_racing_app/screens/memorial.dart';
 import 'package:horse_racing_app/screens/settings.dart';
-import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
+
 import 'package:horse_racing_app/base.dart';
 
 void main() {

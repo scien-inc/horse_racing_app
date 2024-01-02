@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:horse_racing_app/widget/showroom.dart';
-import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
 class MemorialPage extends StatelessWidget{
   const MemorialPage({super.key});

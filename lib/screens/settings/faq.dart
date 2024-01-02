@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
+
 
 class FAQPage extends StatefulWidget {
   @override
@@ -26,10 +26,7 @@ class _FAQPageState extends State<FAQPage> {
       body: Center(
         child: Text('アカウント設定ページ'),
       ),
-      bottomNavigationBar: SharedBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,// SharedBottomNavBarにページリストを渡す
-      ),
+      
     );
   }
 }

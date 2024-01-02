@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
-import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
 class ReportPage extends StatelessWidget{
   const ReportPage({super.key});

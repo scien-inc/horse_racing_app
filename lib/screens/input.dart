@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:horse_racing_app/widget/input_screen.dart';
-import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
+
 
 class InputPage extends StatelessWidget{
   const InputPage({super.key});
