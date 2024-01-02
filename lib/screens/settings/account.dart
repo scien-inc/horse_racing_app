@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
 class AccountSettingsPage extends StatefulWidget {
   @override
@@ -31,10 +30,7 @@ class _AccountSettingsPageState extends State<AccountSettingsPage> {
           SettingItem(title: '電話番号', defaultValue: '追加する'),
         ],
       ),
-      bottomNavigationBar: SharedBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,
-      ),
+      
     );
   }
 }

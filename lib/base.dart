@@ -39,11 +39,16 @@ class BasePage extends HookWidget {
       bottomNavigationBar: BottomNavigationBar(
         type: BottomNavigationBarType.fixed,
         currentIndex: TabItem.values.indexOf(currentTab.value),
+        selectedItemColor: Colors.green, // 選択されているアイテムの色
+        unselectedItemColor: Colors.black, // 選択されていないアイテムの色
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold), // 選択されたラベルのスタイル
+        unselectedLabelStyle: TextStyle(fontWeight: FontWeight.bold), // 選択されていないラベルのスタイル
         items: TabItem.values
             .map(
               (tabItem) => BottomNavigationBarItem(
-                icon: Icon(tabItem.icon),
+                icon: tabItem.getIcon(currentTab.value == tabItem),
                 label: tabItem.title,
+                backgroundColor: Colors.white
               ),
             )
             .toList(),

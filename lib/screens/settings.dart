@@ -5,7 +5,6 @@ import 'package:horse_racing_app/screens/settings/faq.dart';
 import 'package:horse_racing_app/screens/settings/notifications.dart';
 import 'package:horse_racing_app/screens/settings/terms.dart';
 import 'package:horse_racing_app/screens/settings/user.dart';
-import 'package:horse_racing_app/widget/shared_bottom_nav_bar.dart';
 
 class SettingsPage extends StatelessWidget{
   const SettingsPage({super.key});
