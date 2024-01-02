@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:horse_racing_app/widget/showroom.dart';
+import 'package:horse_racing_app/widget/racecourse.dart';
+
 
 class MemorialPage extends StatelessWidget{
   const MemorialPage({super.key});
@@ -48,7 +50,29 @@ class _MemorialScreenState extends State<MemorialScreen> {
             SizedBox(height: 15.0),
 
             CustomButton(
-            onPressed: (){},
+            onPressed: (){
+               Navigator.of(context).push(
+                PageRouteBuilder(
+                  pageBuilder: (context, animation, secondaryAnimation) {
+                    return RacecoursePage();
+                  },
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    
+                    final Offset begin = Offset(1.0, 0.0); // 右から左
+                    // final Offset begin = Offset(-1.0, 0.0); // 左から右
+                    final Offset end = Offset.zero;
+                    final Animatable<Offset> tween = Tween(begin: begin, end: end)
+                        .chain(CurveTween(curve: Curves.easeInOut));
+                    final Animation<Offset> offsetAnimation = animation.drive(tween);
+                    return SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    );
+                  },
+                  transitionDuration: Duration(milliseconds: 250),
+                ),
+              );
+            },
             labelText: "競馬場別",
             imagePath: 'material/img/menu_item_racecourse.png'
             ),
