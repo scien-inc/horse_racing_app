@@ -437,18 +437,6 @@ class _InputOverlayState extends State<InputOverlay> {
               ],
             ),
           ),
-          //Container(
-          //  padding: const EdgeInsets.all(8.0),
-          //  margin: const EdgeInsets.symmetric(horizontal: 10.0),
-          //  decoration: BoxDecoration(
-          //    color: Colors.grey[350],
-          //    borderRadius: BorderRadius.circular(10.0),
-          //  ),
-          //  child: IconButton(
-          //    icon: Icon(Icons.add_circle_outline),
-          //    onPressed: () => setState(() => formRows.add(_createFormRow())),
-          //  ),
-          //),
         ],
       ),
     );
@@ -593,4 +581,29 @@ Widget buildInputField(String hint, {double borderRadius = 0}) {
       child: Text('保存する'),
     );
   }
+}
+
+class InputOverlayUtils {
+  static Widget buildDropdownField(List<String> items, String selectedValue, void Function(String?) onChanged, {double borderRadius = 0}) {
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      margin: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        color: Colors.grey[200],
+        borderRadius: BorderRadius.circular(borderRadius),
+      ),
+      child: DropdownButton<String>(
+        value: selectedValue, // ここで現在の値を設定
+        onChanged: onChanged,
+        items: items.map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        }).toList(),
+        isExpanded: true,
+      ),
+    );
+  }
+
 }
