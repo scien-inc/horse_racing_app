@@ -86,23 +86,27 @@ class _FinancialSummaryWidgetState extends State<FinancialSummaryWidget> {
   }
 
   Widget _buildRecoveryRateItemNoBackground(String imagePath, String label, int rate) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: <Widget>[
-      Row(
-        children: <Widget>[
-          SizedBox(width: 54.0),
-          Image.asset(imagePath, width: 24.0, height: 24.0),
-          SizedBox(width: 10.0),
-          Text(label, style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
-        ],
-      ),
-      Text(
-        NumberFormat('#,##0.0').format(rate) + ' %',
-        style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.green),
-      ),
-    ],
-  );
-}
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Row(
+          children: <Widget>[
+            SizedBox(width: 54.0),
+            Image.asset(imagePath, width: 24.0, height: 24.0),
+            SizedBox(width: 10.0),
+            Text(label, style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
+          ],
+        ),
+        Padding(
+          padding: EdgeInsets.only(right: 33.0),  // ここで右側のパディングを追加
+          child: Text(
+            NumberFormat('#,##0.0').format(rate) + ' %',
+            style: TextStyle(fontSize: 24.0, fontWeight: FontWeight.bold, color: Colors.green),
+          ),
+        ),
+      ],
+    );
+  }
+
 
 }
