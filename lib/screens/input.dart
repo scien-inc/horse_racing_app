@@ -82,6 +82,7 @@ class _InputScreenState extends State<InputScreen> {
             //width and color
           onPressed: () {
             showModalBottomSheet(
+              isScrollControlled: true,
               context: context,
               builder: (BuildContext context) {
                 return InputOverlay();
