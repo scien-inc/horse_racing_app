@@ -42,33 +42,37 @@ class _InputOverlayState extends State<InputOverlay> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.85,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            // ... [以前のウィジェットを維持]
-            // 開催日時の入力フィールド
-            buildDateField(context),
-            // ... [他のプルダウンメニューと入力フィールド]
-            
-            buildLocationAndRaceFields(context),
-            buildRaceAndClasses(context),
-            buildCourseAndDistance(context),
-            buildNumberInputField(''),
-            buildDynamicForm(),
-            
-            buildGrayInputField('メモ', maxLines: 6),
-            buildFavoriteButton(),
-            buildSaveButton(),
-            
-          ],
+    return GestureDetector(
+      onTap: () => primaryFocus?.unfocus(),
+      child:Container(
+        height: MediaQuery.of(context).size.height * 0.7,
+        margin: EdgeInsets.all(8.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
         ),
-      ),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              // ... [以前のウィジェットを維持]
+              // 開催日時の入力フィールド
+              buildDateField(context),
+              // ... [他のプルダウンメニューと入力フィールド]
+              
+              buildLocationAndRaceFields(context),
+              buildRaceAndClasses(context),
+              buildCourseAndDistance(context),
+              buildNumberInputField(''),
+              buildDynamicForm(),
+              
+              buildGrayInputField('メモ', maxLines: 6),
+              buildFavoriteButton(),
+              buildSaveButton(),
+              
+            ],
+          ),
+        ),
+      )
     );
   }
 
