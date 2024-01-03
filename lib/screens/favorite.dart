@@ -16,13 +16,7 @@ class FavoriteScreen extends StatefulWidget {
   _FavoriteScreenState createState() => _FavoriteScreenState();
 }
 class _FavoriteScreenState extends State<FavoriteScreen> {
-  int _currentIndex = 3; // 初期インデックスを0に設定
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _currentIndex = index; // タップされたときにインデックスを更新
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
