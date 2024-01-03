@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:horse_racing_app/widget/showroom.dart';
+import 'package:horse_racing_app/widget/racecourse.dart';
 
 class FieldwiseReportWidget extends StatelessWidget {
   @override
@@ -14,18 +14,10 @@ class FieldwiseReportWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              _buildIconWithLabel('material/icons/calendar_blank.png', '期間別', context, () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Showroom()));
-              }),
-              _buildIconWithLabel('material/icons/sneaker_move.png', 'コース別', context, () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Showroom()));
-              }),
-              _buildIconWithLabel('material/icons/horse.png', '競馬場別', context, () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Showroom()));
-              }),
-              _buildIconWithLabel('material/icons/ticket.png', '券種別', context, () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Showroom()));
-              }),
+              _buildIconWithLabel('material/icons/calendar_blank.png', '期間別',context, (ctx) => RacecoursePage()),
+              _buildIconWithLabel('material/icons/sneaker_move.png', 'コース別', context, (ctx) => RacecoursePage()),
+              _buildIconWithLabel('material/icons/horse.png', '競馬場別', context, (ctx) => RacecoursePage()),
+              _buildIconWithLabel('material/icons/ticket.png', '券種別', context, (ctx) => RacecoursePage()),
             ],
           ),
         ],
@@ -33,9 +25,29 @@ class FieldwiseReportWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildIconWithLabel(String imagePath, String label, BuildContext context, VoidCallback onTap) {
-    return GestureDetector(
-      onTap: onTap,
+Widget _buildIconWithLabel(String imagePath, String label, BuildContext context, WidgetBuilder pageBuilder) {
+  return GestureDetector(
+    onTap: () {
+      Navigator.of(context).push(
+        PageRouteBuilder(
+          pageBuilder: (context, animation, secondaryAnimation) => pageBuilder(context),
+                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                    
+                    final Offset begin = Offset(1.0, 0.0); // 右から左
+                    // final Offset begin = Offset(-1.0, 0.0); // 左から右
+                    final Offset end = Offset.zero;
+                    final Animatable<Offset> tween = Tween(begin: begin, end: end)
+                        .chain(CurveTween(curve: Curves.easeInOut));
+                    final Animation<Offset> offsetAnimation = animation.drive(tween);
+                    return SlideTransition(
+                      position: offsetAnimation,
+                      child: child,
+                    );
+                  },
+                  transitionDuration: Duration(milliseconds: 250),
+                ),
+              );
+            },
       child: Column(
         children: <Widget>[
           Container(
